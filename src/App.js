@@ -11,6 +11,7 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Navbar from './features/navbar/Navbar';
+import Protected from './features/auth/components/Protected';
 
 
 function App() {
@@ -19,12 +20,12 @@ function App() {
   <BrowserRouter>
   <Navbar/>
   <Routes>
-    <Route path='/' element={<Home/>}/>
+  <Route path='/' element={ <Protected><Home/></Protected>}/>
     <Route path='/login' element={<LoginPage/>}/>
     <Route path='/signup' element={<SignupPage/>}/>
-    <Route path='/cart' element={<CartPage/>}/>
-    <Route path='/checkout' element={<CheckoutPage/>}/>
-    <Route path='/productdetail' element={<ProductDetailPage/>}/>
+    <Route path='/cart' element={<Protected><CartPage/></Protected>}/>
+    <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
+    <Route path='/productdetail/:id' element={<Protected><ProductDetailPage/></Protected>}/>
     </Routes>
     </BrowserRouter>
     </>

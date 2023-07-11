@@ -1,24 +1,30 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counterAPI';
+import { checkUser, createUser } from './authAPI';
 
 const initialState = {
-  value: 0,
+  loggedInUser:null,
   status: 'idle',
+  errors:null
 };
 
-export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
-  async (amount) => {
-    const response = await fetchCount(amount);
-    // The value we return becomes the `fulfilled` action payload
+export const createUserAsync = createAsyncThunk(
+  'user/createUser',
+  async (userData) => {
+    const response = await createUser(userData);
+    return response.data;
+  }
+);
+export const checkUserAsync = createAsyncThunk(
+  'user/checkUser',
+  async (loginInfo) => {
+    const response = await checkUser(loginInfo);
     return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const createUserSlice = createSlice({
+  name: 'user',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     increment: (state) => {
       state.value += 1;
@@ -27,25 +33,28 @@ export const counterSlice = createSlice({
  
   extraReducers: (builder) => {
     builder
-      .addCase(incrementAsync.pending, (state) => {
+      .addCase( createUserAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
+      .addCase( createUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value += action.payload;
+        state.loggedInUser = action.payload;
+      })
+      .addCase( checkUserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase( checkUserAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUser = action.payload;
+      })
+      .addCase( checkUserAsync.rejected, (state, action) => {
+        state.status = 'idle';
+        state.errors = action.error;
       });
   },
 });
 
-export const { increment, } = counterSlice.actions;
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-
-
-// We can also write thunks by hand, which may contain both sync and async logic.
-// Here's an example of conditionally dispatching actions based on current state.
-
-
-export default counterSlice.reducer;
+export const selectLoggedInUsers = (state)=>state.auth.loggedInUser
+export const selectError = (state)=>state.auth.error
+export default createUserSlice.reducer;
