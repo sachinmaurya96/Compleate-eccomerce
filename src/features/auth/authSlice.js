@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { checkUser, createUser } from './authAPI';
+import { Navigate } from 'react-router-dom';
 
 const initialState = {
   loggedInUser:null,
@@ -39,6 +40,7 @@ export const createUserSlice = createSlice({
       .addCase( createUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.loggedInUser = action.payload;
+        
       })
       .addCase( checkUserAsync.pending, (state) => {
         state.status = 'loading';
