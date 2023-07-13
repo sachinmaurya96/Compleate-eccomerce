@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
@@ -12,9 +12,22 @@ import CheckoutPage from './pages/CheckoutPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Navbar from './features/navbar/Navbar';
 import Protected from './features/auth/components/Protected';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchItemsByUserIdAsync, selectItems } from './features/cart/cartSlice';
+import { selectLoggedInUsers } from './features/auth/authSlice';
 
 
 function App() {
+  const dispatch = useDispatch()
+  const user = useSelector(selectLoggedInUsers)
+  const items = useSelector(selectItems)
+  console.log(items.length)
+  useEffect(()=>{
+    if(user !== null){
+      dispatch(fetchItemsByUserIdAsync(user?.id))
+    }
+  },[(user !== null),dispatch])
+
   return (
     <>
   <BrowserRouter>

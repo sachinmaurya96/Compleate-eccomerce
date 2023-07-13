@@ -5,6 +5,9 @@ import { NavLink, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductByIdAsync, selectProductById } from '../ProductSlice'
 import { fetchProductById } from '../ProductApi'
+import { addToCartAsync, fetchItemsByUserIdAsync, selectItems, updateCartAsync } from '../../cart/cartSlice'
+import { selectLoggedInUsers } from '../../auth/authSlice'
+import { fetchItemsByUserId } from '../../cart/cartAPI'
 
 
 
@@ -34,13 +37,27 @@ export default function ProductDetail() {
 const product = useSelector(selectProductById)
 const dispatch = useDispatch()
 const params = useParams()
+const user = useSelector(selectLoggedInUsers)
+const items = useSelector(selectItems)
 
 console.log(product)
 useEffect(()=>{
   dispatch(fetchProductByIdAsync(params.id))
   
 },[dispatch])
-
+  const handleCart =(e)=>{
+    e.preventDefault()
+    const index = items?.findIndex(item=>item.id===product.id)
+    if(index>-1){
+     e.target.innerText = "Alredy add in cart"
+    }else{
+      const newItem = {...product,quantity:1,user:user.id}
+      delete newItem["id"]
+      dispatch(addToCartAsync(newItem))
+    }
+   
+    
+  }
   return (
     <div className="bg-white">
       {product && (
@@ -210,6 +227,7 @@ useEffect(()=>{
               </div>
               <NavLink to="/cart">                 
               <button
+              onClick={handleCart}
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >

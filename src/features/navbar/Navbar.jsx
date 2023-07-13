@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useEffect } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -7,7 +7,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectItems } from "../cart/cartSlice";
+import { selectLoggedInUsers } from "../auth/authSlice";
+import { fetchItemsByUserIdAsync } from "../cart/cartSlice";
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -30,6 +33,15 @@ function classNames(...classes) {
 }
 
 function Navbar({ children }) {
+  const userId = useSelector(selectLoggedInUsers)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    if(userId){
+      dispatch(fetchItemsByUserIdAsync(userId.id))
+    }
+  },[])
+  const cart = useSelector(selectItems) 
+  
   return (
     <>
       <div className="min-h-full">
@@ -70,22 +82,27 @@ function Navbar({ children }) {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                        <NavLink to="cart">
-                      <button
-                        type="button"
-                        className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                      >
-                        
-                        <ShoppingCartIcon
-                          className="h-6 w-6"
-                          aria-hidden="true"
-                        />
-                        
-                      </button>
-                      </NavLink>
-                      <span className="inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                          3
-                        </span>
+                       {
+                        userId &&  (<NavLink to="cart">
+                        <button
+                          type="button"
+                          className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        >
+                          
+                          <ShoppingCartIcon
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                          />
+                          
+                        </button>
+                       {
+                        cart?.length === 0 ? "": <span className="inline-flex items-center rounded-md -ml-2 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                        {cart.length}
+                      </span>
+                       }
+                        </NavLink>)
+                       }
+                      
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -198,7 +215,7 @@ function Navbar({ children }) {
                     </button>
                     </NavLink>
                     <span className="inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                          3
+                    {cart.length}
                         </span>
                   </div>
                   <div className="mt-3 space-y-1 px-2">

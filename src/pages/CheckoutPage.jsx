@@ -4,34 +4,10 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCartAsync, selectItems, updateCartAsync } from '../features/cart/cartSlice';
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
+
 const address = [
     {
         name:"jhon wick",
@@ -60,7 +36,15 @@ const address = [
 ]
 
 function CheckoutPage() {
-  
+  const dispatch = useDispatch()
+  const products = useSelector(selectItems)
+  const totalamount = products.reduce((amount,item)=>item.price*item.quantity+amount,0)
+  const totalItems =  products.reduce((total,item)=>item.quantity+total,0)
+
+
+  const handleQuantity = (e,item)=>{
+    dispatch(updateCartAsync({...item,quantity:+e.target.value}))
+   }
   return (
     <>
     <div className='grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 mx-auto mt-10 bg-white max-w-7xl px-4 sm:px-6 lg:px-8'>
@@ -72,35 +56,19 @@ function CheckoutPage() {
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
-              <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                 First name
               </label>
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
+                  name="name"
+                  id="name"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
-
-            <div className="sm:col-span-3">
-              <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
-                Last name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
             <div className="sm:col-span-4">
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -281,8 +249,8 @@ function CheckoutPage() {
              <li key={product.id} className="flex py-6">
                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                  <img
-                   src={product.imageSrc}
-                   alt={product.imageAlt}
+                   src={product.thumbnail}
+                   alt={product.title}
                    className="h-full w-full object-cover object-center"
                  />
                </div>
@@ -291,28 +259,31 @@ function CheckoutPage() {
                  <div>
                    <div className="flex justify-between text-base font-medium text-gray-900">
                      <h3>
-                       <a href={product.href}>{product.name}</a>
+                       <a href={product.thumbnail}>{product.title}</a>
                      </h3>
-                     <p className="ml-4">{product.price}</p>
+                     <p className="ml-4">${product.price}</p>
                    </div>
                    <p className="mt-1 text-sm text-gray-500">
-                     {product.color}
+                     {product.rating}
                    </p>
                  </div>
                  <div className="flex flex-1 items-end justify-between text-sm">
                    
                   <div>
                   <p className="text-gray-500 inline mr-5">Qty  </p>
-                  <select>
+                  <select onChange={(e)=>handleQuantity(e,product)} value={product.quantity}>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
                    </select>
                   </div>
                  
 
                    <div className="flex">
                      <button
+                     onClick={()=>dispatch(deleteCartAsync(product.id))}
                        type="button"
                        className="font-medium text-indigo-600 hover:text-indigo-500"
                      >
@@ -330,7 +301,11 @@ function CheckoutPage() {
      <div className="border-t border-gray-200  py-6 sm:px-6">
        <div className="flex justify-between text-base font-medium text-gray-900">
          <p>Subtotal</p>
-         <p>$262.00</p>
+         <p>${totalamount}</p>
+       </div>
+       <div className="flex justify-between text-base font-medium text-gray-900">
+         <p>Total tems</p>
+         <p>{totalItems}</p>
        </div>
        <p className="mt-0.5 text-sm text-gray-500">
          Shipping and taxes calculated at checkout.
