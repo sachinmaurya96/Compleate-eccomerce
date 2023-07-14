@@ -15,6 +15,8 @@ import Protected from './features/auth/components/Protected';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchItemsByUserIdAsync, selectItems } from './features/cart/cartSlice';
 import { selectLoggedInUsers } from './features/auth/authSlice';
+import PagenotFound from './pages/404';
+import OrderSuccess from './pages/OrderSuccess';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
     <Route path='/cart' element={<Protected><CartPage/></Protected>}/>
     <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
     <Route path='/productdetail/:id' element={<Protected><ProductDetailPage/></Protected>}/>
+    <Route path='/orderSuccess/:id' element={<OrderSuccess/>}/>
+    <Route path='*' element={<PagenotFound/>}/>
     </Routes>
     </BrowserRouter>
     </>
