@@ -69,8 +69,7 @@ function CheckoutPage() {
   } = useForm();
 
   const handleAddress = (e) => {
-    // setSelectedAddress(e.target.value)
-    console.log(user?.address[e.target.value]);
+    setSelectedAddress(user?.address[e.target.value])
   };
   const handlePayment = (e) => {
     // setSelectedAddress(e.target.value)

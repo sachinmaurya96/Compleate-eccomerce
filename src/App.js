@@ -17,6 +17,8 @@ import { fetchItemsByUserIdAsync, selectItems } from './features/cart/cartSlice'
 import { selectLoggedInUsers } from './features/auth/authSlice';
 import PagenotFound from './pages/404';
 import OrderSuccess from './pages/OrderSuccess';
+import UserOrderPage from './pages/UserOrderPage';
+import UserProfilePage from './pages/UserProfilePage';
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
     <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
     <Route path='/productdetail/:id' element={<Protected><ProductDetailPage/></Protected>}/>
     <Route path='/orderSuccess/:id' element={<OrderSuccess/>}/>
+    <Route path='/orders' element={<UserOrderPage/>}/>
+    <Route path='/profile' element={<Protected><UserProfilePage/></Protected>}/>
     <Route path='*' element={<PagenotFound/>}/>
     </Routes>
     </BrowserRouter>
