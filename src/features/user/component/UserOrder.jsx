@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchloggedInUserOrdersAsync, selectUserOrder } from '../userSlice'
+import { fetchloggedInUserOrdersAsync, selectUserInfo, selectUserOrder } from '../userSlice'
 import { selectLoggedInUsers } from '../../auth/authSlice'
 import { NavLink } from 'react-router-dom'
 function UserOrder() {
     const dispatch = useDispatch()
     const [open, setOpen] = useState(true);
-    const user = useSelector(selectLoggedInUsers)
+    const user = useSelector(selectUserInfo)
     const userOrder = useSelector(selectUserOrder)
     console.log(userOrder)
     useEffect(()=>{

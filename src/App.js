@@ -19,6 +19,8 @@ import PagenotFound from './pages/404';
 import OrderSuccess from './pages/OrderSuccess';
 import UserOrderPage from './pages/UserOrderPage';
 import UserProfilePage from './pages/UserProfilePage';
+import { fetchloggedInUserAsync } from './features/user/userSlice';
+import Logout from './features/auth/components/Logout';
 
 
 function App() {
@@ -29,8 +31,9 @@ function App() {
   useEffect(()=>{
     if(user !== null){
       dispatch(fetchItemsByUserIdAsync(user?.id))
+      dispatch(fetchloggedInUserAsync(user?.id))
     }
-  },[(user !== null),dispatch])
+  },[user,dispatch])
 
   return (
     <>
@@ -46,6 +49,7 @@ function App() {
     <Route path='/orderSuccess/:id' element={<OrderSuccess/>}/>
     <Route path='/orders' element={<UserOrderPage/>}/>
     <Route path='/profile' element={<Protected><UserProfilePage/></Protected>}/>
+    <Route path='/logout' element={<Logout/>}/>
     <Route path='*' element={<PagenotFound/>}/>
     </Routes>
     </BrowserRouter>
