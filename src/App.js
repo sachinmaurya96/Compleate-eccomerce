@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -21,6 +19,11 @@ import UserOrderPage from './pages/UserOrderPage';
 import UserProfilePage from './pages/UserProfilePage';
 import { fetchloggedInUserAsync } from './features/user/userSlice';
 import Logout from './features/auth/components/Logout';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import AdminHome from './pages/AdminHome';
+import AdminProductDetailPage from './pages/AdminProductDetailPage';
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import AdminProductFormPage from './pages/AdminProductFormPage';
 
 
 function App() {
@@ -46,10 +49,15 @@ function App() {
     <Route path='/cart' element={<Protected><CartPage/></Protected>}/>
     <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
     <Route path='/productdetail/:id' element={<Protected><ProductDetailPage/></Protected>}/>
+    <Route path='/admin/productdetail/:id' element={<ProtectedAdmin><AdminProductDetailPage/></ProtectedAdmin>}/>
     <Route path='/orderSuccess/:id' element={<OrderSuccess/>}/>
     <Route path='/orders' element={<UserOrderPage/>}/>
     <Route path='/profile' element={<Protected><UserProfilePage/></Protected>}/>
     <Route path='/logout' element={<Logout/>}/>
+    <Route path='/admin' element={<ProtectedAdmin><AdminHome/></ProtectedAdmin>}/>
+    <Route path='/admin/productform' element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>}/>
+    <Route path='/admin/productform/edit/:id' element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>}/>
+    <Route path='/forgotpassword' element={<ForgotPasswordPage/>}/>
     <Route path='*' element={<PagenotFound/>}/>
     </Routes>
     </BrowserRouter>
