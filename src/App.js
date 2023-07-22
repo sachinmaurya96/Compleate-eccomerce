@@ -24,6 +24,7 @@ import AdminHome from './pages/AdminHome';
 import AdminProductDetailPage from './pages/AdminProductDetailPage';
 import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
 import AdminProductFormPage from './pages/AdminProductFormPage';
+import AdsminOrdersPage from './pages/AdsminOrdersPage';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
     <Route path='/admin' element={<ProtectedAdmin><AdminHome/></ProtectedAdmin>}/>
     <Route path='/admin/productform' element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>}/>
     <Route path='/admin/productform/edit/:id' element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>}/>
+    <Route path='/admin/adminorder' element={<ProtectedAdmin><AdsminOrdersPage/></ProtectedAdmin>}/>
     <Route path='/forgotpassword' element={<ForgotPasswordPage/>}/>
     <Route path='*' element={<PagenotFound/>}/>
     </Routes>

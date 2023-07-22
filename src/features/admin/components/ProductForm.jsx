@@ -1,25 +1,57 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchBrandsAsync, fetchCategoriesAsync, selectAllBrands, selectAllCategories } from '../../product-list/ProductSlice'
+import { fetchBrandsAsync, fetchCategoriesAsync, fetchProductByIdAsync, selectAllBrands, selectAllCategories, selectProductById, updateProductAsync } from '../../product-list/ProductSlice'
 import { useForm } from 'react-hook-form'
 import { createProduct } from '../../product-list/ProductApi'
 import { useParams } from 'react-router-dom'
 function ProductForm() {
     const brands = useSelector(selectAllBrands)
     const category = useSelector(selectAllCategories)
+    const selectProduct = useSelector(selectProductById)
     const {
         register,
         handleSubmit,
-        watch,
         reset,
+        setValue,
         formState: { errors },
       } = useForm()
       const dispatch = useDispatch()
       const params = useParams()
+      
+     
+      useEffect(()=>{
+        dispatch(fetchProductByIdAsync(params.id))
+      },[params.id])
+      useEffect(()=>{
+        if(params.id){
+         setValue("title",selectProduct?.title)
+         setValue("description",selectProduct?.description)
+         setValue("price",+selectProduct?.price)
+         setValue("discountPercentage",+selectProduct?.discountPercentage)
+         setValue("stock",+selectProduct?.stock)
+         setValue("brand",selectProduct?.brand)
+         setValue("category",selectProduct?.category)
+         setValue("thumbnail",selectProduct?.thumbnail)
+         setValue("thumbnail",selectProduct?.thumbnail)
+         setValue("image1",selectProduct?.images[0])
+         setValue("image2",selectProduct?.images[1])
+         setValue("image3",selectProduct?.images[2])
+      
+        }
+      })
+     
       useEffect(()=>{
         dispatch(fetchBrandsAsync())
         dispatch(fetchCategoriesAsync())
+      
+
       },[])
+      const handleDelete =()=>{
+          const product = {...selectProduct}
+          product.deleted = true
+          dispatch(updateProductAsync(product))
+          reset()
+      }
   return (
     <>
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -27,11 +59,18 @@ function ProductForm() {
        const product = {...data}
        product.images = [product.thumbnail,product.image1,product.image2,product.image3]
        product.rating  = 0
+       product.id = selectProduct?.id
         delete product["image1"]
         delete product["image2"]
         delete product["image3"]
+       if(params.id){
+        dispatch(updateProductAsync(product))
+        reset()
+       }else{
         dispatch(createProduct(product))
         reset()
+       }
+       
     })}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
@@ -343,6 +382,11 @@ function ProductForm() {
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Cancel
         </button>
+       {
+        selectProduct &&  <button onClick={handleDelete} type="button" className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Delete
+      </button>
+       }
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

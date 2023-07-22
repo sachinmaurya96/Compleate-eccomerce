@@ -478,7 +478,7 @@ function ProductGrid({ products }) {
             {products.map((product, i) => (
               <div key={product.id}>
                 <NavLink to={`/productdetail/${product.id}`} key={i}>
-                  <div className="group relative shadow-xl rounded-md pb-3 border-2">
+                  <div className="group relative shadow-xl rounded-md pb-3 border-2 my-3">
                     <div className=" aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                       <img
                         src={product.thumbnail}
@@ -518,10 +518,13 @@ function ProductGrid({ products }) {
                         </p>
                       </div>
                     </div>
+                    {
+                      product.deleted && <p className="text-red-600">Product deleted</p>
+                    }
                   </div>
                 </NavLink>
                 <div>
-                  <NavLink to={`/admin/productform/edit/${product.id}`} className="my-3  rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <NavLink to={`/admin/productform/edit/${product.id}`} className="my-4  rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Edit Product
                   </NavLink>
                 </div>
