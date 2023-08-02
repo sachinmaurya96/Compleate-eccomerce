@@ -521,6 +521,9 @@ function ProductGrid({ products }) {
                     {
                       product.deleted && <p className="text-red-600">Product deleted</p>
                     }
+                    {
+                      product.stock<=0 && <p className="text-red-600">Product out of stock</p>
+                    }
                   </div>
                 </NavLink>
                 <div>

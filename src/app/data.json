@@ -7,7 +7,7 @@
       "price": 549,
       "discountPercentage": 12,
       "rating": 0,
-      "stock": 94,
+      "stock": 0,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -2450,7 +2450,7 @@
         "state": "Uttar Pradesh",
         "pinCode": "230401"
       },
-      "status": "pending",
+      "status": "cancelled",
       "id": 1
     },
     {
@@ -2510,7 +2510,7 @@
         "state": "Uttar Pradesh",
         "pinCode": "230401"
       },
-      "status": "pending",
+      "status": "dispatched",
       "id": 2
     },
     {
@@ -2574,8 +2574,497 @@
         "state": "Uttar Pradesh",
         "pinCode": "230401"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 3
+    },
+    {
+      "products": [
+        {
+          "title": "iPhone 10",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549,
+          "discountPercentage": 12,
+          "rating": 0,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg"
+          ],
+          "deleted": true,
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 549,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "products": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 1499,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "products": [
+        {
+          "title": "HP Pavilion 15-DK1056WM",
+          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+          "price": 1099,
+          "discountPercentage": 6.18,
+          "rating": 4.43,
+          "stock": 89,
+          "brand": "HP Pavilion",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+          "images": [
+            "https://i.dummyjson.com/data/products/10/1.jpg",
+            "https://i.dummyjson.com/data/products/10/2.jpg",
+            "https://i.dummyjson.com/data/products/10/3.jpg",
+            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "HP Pavilion 15-DK1056WM",
+          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+          "price": 1099,
+          "discountPercentage": 6.18,
+          "rating": 4.43,
+          "stock": 89,
+          "brand": "HP Pavilion",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+          "images": [
+            "https://i.dummyjson.com/data/products/10/1.jpg",
+            "https://i.dummyjson.com/data/products/10/2.jpg",
+            "https://i.dummyjson.com/data/products/10/3.jpg",
+            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalItems": 2,
+      "totalamount": 2198,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "products": [
+        {
+          "title": "HP Pavilion 15-DK1056WM",
+          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+          "price": 1099,
+          "discountPercentage": 6.18,
+          "rating": 4.43,
+          "stock": 89,
+          "brand": "HP Pavilion",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+          "images": [
+            "https://i.dummyjson.com/data/products/10/1.jpg",
+            "https://i.dummyjson.com/data/products/10/2.jpg",
+            "https://i.dummyjson.com/data/products/10/3.jpg",
+            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        },
+        {
+          "title": "Infinix INBOOK",
+          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+          "price": 1099,
+          "discountPercentage": 11.83,
+          "rating": 4.54,
+          "stock": 96,
+          "brand": "Infinix",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/9/1.jpg",
+            "https://i.dummyjson.com/data/products/9/2.png",
+            "https://i.dummyjson.com/data/products/9/3.png",
+            "https://i.dummyjson.com/data/products/9/4.jpg",
+            "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 2,
+      "totalamount": 2198,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "products": [
+        {
+          "title": "Tree Oil 30ml",
+          "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+          "price": 12,
+          "discountPercentage": 4.09,
+          "rating": 4.52,
+          "stock": 78,
+          "brand": "Hemani Tea",
+          "category": "skincare",
+          "thumbnail": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/17/1.jpg",
+            "https://i.dummyjson.com/data/products/17/2.jpg",
+            "https://i.dummyjson.com/data/products/17/3.jpg",
+            "https://i.dummyjson.com/data/products/17/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 12,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 8
+    },
+    {
+      "products": [
+        {
+          "title": "women winter clothes",
+          "description": "women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set",
+          "price": 57,
+          "discountPercentage": 13.39,
+          "rating": 4.91,
+          "stock": 84,
+          "brand": "Top Sweater",
+          "category": "tops",
+          "thumbnail": "https://i.dummyjson.com/data/products/40/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/40/1.jpg",
+            "https://i.dummyjson.com/data/products/40/2.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 57,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "products": [
+        {
+          "title": "3 DOOR PORTABLE",
+          "description": "Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe",
+          "price": 41,
+          "discountPercentage": 7.98,
+          "rating": 4.06,
+          "stock": 68,
+          "brand": "AmnaMart",
+          "category": "furniture",
+          "thumbnail": "https://i.dummyjson.com/data/products/35/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/35/1.jpg",
+            "https://i.dummyjson.com/data/products/35/2.jpg",
+            "https://i.dummyjson.com/data/products/35/3.jpg",
+            "https://i.dummyjson.com/data/products/35/4.jpg",
+            "https://i.dummyjson.com/data/products/35/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 41,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "products": [
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItems": 1,
+      "totalamount": 499,
+      "user": {
+        "email": "nitinmaurya@gmail.com",
+        "password": "Sa123456@",
+        "role": "admin",
+        "address": [
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          },
+          {
+            "name": "sachin",
+            "email": "myblog9695@gmain.com",
+            "phone": "9695439912",
+            "streetAddress": "pratapgarh utter pradesh",
+            "city": "Pratapgarh",
+            "state": "Uttar Pradesh",
+            "pinCode": "230401"
+          }
+        ],
+        "id": 1
+      },
+      "paymentmethod": null,
+      "selectedAddress": null,
+      "status": "pending",
+      "id": 11
     }
   ]
 }
